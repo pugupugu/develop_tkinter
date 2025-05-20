@@ -1,20 +1,20 @@
 import tkinter as tk
-import webbrowser
 
-def open_naver():
-    webbrowser.open("https://www.naver.com")
-
-def open_google():
-    webbrowser.open("https://www.google.com")
+def change_text():
+    current = label.cget("text")
+    if current == "여기에 텍스트가 표시됩니다.":
+        label.config(text="텍스트가 변경되었습니다!")
+    else:
+        label.config(text="여기에 텍스트가 표시됩니다.")
 
 root = tk.Tk()
-root.title("사이트 이동 버튼")
-root.geometry("200x100")  # 창 크기 지정
+root.title("동적 레이블 예제")
+root.geometry("500x200")
 
-btn_naver = tk.Button(root, text="Naver", command=open_naver)
-btn_naver.pack(pady=10)
+label = tk.Label(root, text="여기에 텍스트가 표시됩니다.", font=("Helvetica", 24))
+label.pack(pady=10)
 
-btn_google = tk.Button(root, text="Google", command=open_google)
-btn_google.pack(pady=10)
+button = tk.Button(root, text="텍스트 변경", command=change_text)
+button.pack(pady=5)
 
 root.mainloop()
